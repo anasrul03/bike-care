@@ -8,6 +8,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "bloc",
+      "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/bloc-8.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -36,6 +42,12 @@
       "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "equatable",
+      "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/equatable-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
@@ -152,7 +164,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-01T04:21:03.948773Z",
+  "generated": "2023-10-09T09:23:55.438374Z",
   "generator": "pub",
   "generatorVersion": "3.1.1"
 }

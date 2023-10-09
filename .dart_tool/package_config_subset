@@ -2,6 +2,10 @@ async
 2.18
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/async-2.11.0/
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/async-2.11.0/lib/
+bloc
+2.12
+file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/bloc-8.1.2/
+file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/bloc-8.1.2/lib/
 boolean_selector
 2.17
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1/
@@ -22,6 +26,10 @@ cupertino_icons
 2.19
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6/
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6/lib/
+equatable
+2.12
+file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/equatable-2.0.5/
+file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/equatable-2.0.5/lib/
 fake_async
 2.12
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/fake_async-1.3.1/
@@ -84,8 +92,8 @@ file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/web-0.1.4-beta/
 file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/web-0.1.4-beta/lib/
 bikecare
 3.1
-file:///Users/hanasrullah/developers/projects/bikecare/
-file:///Users/hanasrullah/developers/projects/bikecare/lib/
+file:///Users/hanasrullah/developers/projects/bike-care/
+file:///Users/hanasrullah/developers/projects/bike-care/lib/
 sky_engine
 3.0
 file:///Users/hanasrullah/fvm/versions/stable/bin/cache/pkg/sky_engine/
