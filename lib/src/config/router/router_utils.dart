@@ -1,45 +1,29 @@
 enum PAGES {
   // Entry Pages
-  onboarding,
   loadingUser,
   login,
   register,
 
   // User's Pages
   bottomNavigationBar,
-  home,
+  dashboard,
+  notification,
+  planning,
   profile,
-  settings,
-
-  // Listing Modules Pages
-  // Booked
-  serviceList,
-  serviceDetails,
-
-  // Venue
-  venueList,
-  venueDetails,
-
-  // Item
-  itemList,
-  itemDetails,
-
-  // Promotions
-  promotion,
-  addPromotionForm,
-  promotionDetails,
-
-  // Payments
-  paymentList,
-  paymentDetails,
 }
 
 // A class to represent information about a page, including its screenPath and screenName.
 class PageInfo {
+  /// Routing address for user to navigate
   final String screenPath;
+
+  /// Naming as reference for a loading screen
   final String screenName;
 
-  const PageInfo({required this.screenPath, required this.screenName});
+  const PageInfo({
+    required this.screenPath,
+    required this.screenName,
+  });
 }
 
 // An extension on the PAGES enum to provide a mapping of enum values to PageInfo objects.
@@ -47,47 +31,35 @@ extension RouteUtilities on PAGES {
   // A static map that associates each PAGES enum value with its PageInfo object.
   static const Map<PAGES, PageInfo> pageDetails = {
     // Entry Pages
-    PAGES.onboarding:
-        PageInfo(screenPath: "/onboarding", screenName: "ON BOARDING"),
-    PAGES.loadingUser:
-        PageInfo(screenPath: "/loadingUser", screenName: "LOADING USER"),
-    PAGES.login: PageInfo(screenPath: "/login", screenName: "LOGIN"),
-
-    // User's Pages
+    PAGES.login: PageInfo(
+      screenPath: "/login",
+      screenName: "LOGIN",
+    ),
+    PAGES.loadingUser: PageInfo(
+      screenPath: "/loadingUser",
+      screenName: "LOADING USER",
+    ),
+    // Main page with bottom navigation bar
     PAGES.bottomNavigationBar: PageInfo(
-        screenPath: "/bottomNavigationBar",
-        screenName: "BOTTOM NAVIGATION BAR"),
-    PAGES.home: PageInfo(screenPath: "/home", screenName: "HOME"),
-    PAGES.settings: PageInfo(screenPath: "/settings", screenName: "SETTINGS"),
-    PAGES.profile: PageInfo(screenPath: "/profile", screenName: "PROFILE"),
-
-    // Listing Modules Pages
-    // Booked
-    PAGES.serviceList: PageInfo(screenPath: "/booked", screenName: "BOOKED"),
-    PAGES.serviceDetails:
-        PageInfo(screenPath: "/bookedDetails", screenName: "BOOKED DETAILS"),
-
-    // Promotion
-    PAGES.promotion:
-        PageInfo(screenPath: "/promotion", screenName: "PROMOTION"),
-    PAGES.addPromotionForm:
-        PageInfo(screenPath: "/addPromotion", screenName: "ADD PROMOTION FORM"),
-    PAGES.promotionDetails: PageInfo(
-        screenPath: "/promotionDetails", screenName: "PROMOTION DETAILS"),
-
-    // Venue
-    PAGES.venueList:
-        PageInfo(screenPath: "/venueList", screenName: "VENUE LIST"),
-    PAGES.venueDetails:
-        PageInfo(screenPath: "/venueDetails", screenName: "VENUE DETAILS"),
-
-    // Courts
-    PAGES.itemList:
-        PageInfo(screenPath: "/courtList", screenName: "COURT LIST"),
-    PAGES.itemDetails:
-        PageInfo(screenPath: "/courtDetails", screenName: "COURT DETAILS"),
-
-    // Payments
+      screenPath: "/bottomNavigationBar",
+      screenName: "BOTTOM NAVIGATION BAR",
+    ),
+    PAGES.dashboard: PageInfo(
+      screenPath: "/dashboard",
+      screenName: "DASHBOARD",
+    ),
+    PAGES.notification: PageInfo(
+      screenPath: "/notification",
+      screenName: "NOTIFICATION",
+    ),
+    PAGES.planning: PageInfo(
+      screenPath: "/planning",
+      screenName: "PLANNING",
+    ),
+    PAGES.profile: PageInfo(
+      screenPath: "/profile",
+      screenName: "PROFILE",
+    ),
   };
 
   // A getter to retrieve the screenPath for the current PAGES enum value.

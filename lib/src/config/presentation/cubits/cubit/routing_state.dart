@@ -3,14 +3,14 @@ part of 'routing_cubit.dart';
 /// Routing state base class
 abstract class RoutingState extends Equatable {
   /// a page's address or path for each index of [bottomNavBarIndex]
-  final String bottomNavPage;
+  final String bottomNavPath;
 
   /// Indexes of the icon selected by user
   final int bottomNavBarIndex;
 
   /// Constructs the Routing State
   const RoutingState({
-    required this.bottomNavPage,
+    required this.bottomNavPath,
     required this.bottomNavBarIndex,
   });
 
@@ -29,7 +29,7 @@ abstract class RoutingState extends Equatable {
 class RoutingInitialState extends RoutingState {
   /// Starter state for routing
   const RoutingInitialState({
-    super.bottomNavPage = "",
+    super.bottomNavPath = "",
     super.bottomNavBarIndex = 0,
   });
 }
@@ -39,7 +39,7 @@ class RoutingInitialState extends RoutingState {
 /// an asynchronous operation related to navigation.
 class RoutingLoadingState extends RoutingState {
   const RoutingLoadingState({
-    required super.bottomNavPage,
+    required super.bottomNavPath,
     required super.bottomNavBarIndex,
   });
 }
@@ -49,7 +49,7 @@ class RoutingLoadingState extends RoutingState {
 /// the current route or screen.
 class RoutingLoadedState extends RoutingState {
   const RoutingLoadedState({
-    required super.bottomNavPage,
+    required super.bottomNavPath,
     required super.bottomNavBarIndex,
   });
 }
@@ -59,7 +59,7 @@ class RoutingLoadedState extends RoutingState {
 /// errors or issues to the user.
 class RoutingFailedState extends RoutingState {
   const RoutingFailedState({
-    required super.bottomNavPage,
+    required super.bottomNavPath,
     required super.bottomNavBarIndex,
   });
 }
@@ -70,7 +70,7 @@ class RoutingFailedState extends RoutingState {
 /// easy to manage the current UI.
 class RoutingNavigationState extends RoutingState {
   const RoutingNavigationState({
-    required super.bottomNavPage,
+    required super.bottomNavPath,
     required super.bottomNavBarIndex,
   });
 }
