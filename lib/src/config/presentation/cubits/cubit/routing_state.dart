@@ -20,7 +20,7 @@ abstract class RoutingState extends Equatable {
   /// object is used to represent the current state of the routing system, and the
   /// routing system should not be compared for equality.
   @override
-  List<Object?> get props => <Object>[];
+  List<Object?> get props => <Object>[bottomNavPath, bottomNavBarIndex];
 }
 
 /// This is the initial state of your application,
