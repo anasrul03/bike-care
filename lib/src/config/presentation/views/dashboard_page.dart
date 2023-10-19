@@ -11,7 +11,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("Notification Page"),
+      child: Text("Dashboard Page"),
     );
   }
 }
