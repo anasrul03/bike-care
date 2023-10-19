@@ -8,6 +8,7 @@ part 'routing_state.dart';
 class RoutingCubit extends Cubit<RoutingState> {
   RoutingCubit() : super(const RoutingInitialState());
 
+  /// Emitting the state and value to the cubit
   void selectedNavigationBarItems(int index) {
     switch (index) {
       case 0:
@@ -45,10 +46,12 @@ class RoutingCubit extends Cubit<RoutingState> {
     }
   }
 
+  /// go will replace the whole route
   void goToPage(String path) {
     AppRouter.router.go(path);
   }
 
+  /// push will continue the route
   void pushToPage(String path) {
     AppRouter.router.push(path);
   }

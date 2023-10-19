@@ -15,7 +15,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children:<Widget> [
+          children: <Widget>[
             Text("Dashboard Page"),
             MileageTrackingCard(),
           ],
