@@ -7,3 +7,6 @@ const List<String> bottomNavigationBarItemsLabel = [
   'Planning',
   'Profile'
 ];
+
+/// [MileageTrackingCard] labelling strings
+const String currentMileage = 'Current Mileage';

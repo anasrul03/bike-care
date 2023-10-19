@@ -1,8 +1,9 @@
-import 'package:bikecare/src/utils/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:bikecare/src/config/presentation/utils/constants/keys/bottom_navigation_bar_route_keys.dart';
+import 'package:bikecare/src/config/presentation/utils/constants/strings.dart';
 import 'package:bikecare/src/config/presentation/cubits/cubit/routing_cubit.dart';
 import 'package:bikecare/src/config/presentation/widgets/bottom_navigation_bar_route.dart';
 import 'package:bikecare/src/config/router/router_utils.dart';
@@ -13,6 +14,7 @@ class BottomNavigationBarPlaceHolder extends StatefulWidget {
   /// [screen] is a Widget that has been passed from routing
   /// and built in [ShellRoute] with bottom navigation bar
   final Widget screen;
+
   const BottomNavigationBarPlaceHolder({
     super.key,
     required this.screen,
@@ -27,21 +29,37 @@ class _BottomNavigationBarPlaceHolderState
     extends State<BottomNavigationBarPlaceHolder> {
   final bottomNavigationItems = [
     BottomNavigationBarRoute(
-        initialLocation: PAGES.dashboard.screenPath,
-        icon: const Icon(Icons.dashboard_sharp),
-        label: bottomNavigationBarItemsLabel[0]),
+      initialLocation: PAGES.dashboard.screenPath,
+      icon: const Icon(
+        Icons.dashboard_sharp,
+        key: dashboardBottomNavBarKey,
+      ),
+      label: bottomNavigationBarItemsLabel[0],
+    ),
     BottomNavigationBarRoute(
-        initialLocation: PAGES.notification.screenPath,
-        icon: const Icon(Icons.notifications),
-        label: bottomNavigationBarItemsLabel[1]),
+      initialLocation: PAGES.notification.screenPath,
+      icon: const Icon(
+        Icons.notifications,
+        key: notificationBottomNavBarKey,
+      ),
+      label: bottomNavigationBarItemsLabel[1],
+    ),
     BottomNavigationBarRoute(
-        initialLocation: PAGES.planning.screenPath,
-        icon: const Icon(Icons.edit_calendar),
-        label: bottomNavigationBarItemsLabel[2]),
+      initialLocation: PAGES.planning.screenPath,
+      icon: const Icon(
+        Icons.edit_calendar,
+        key: planningBottomNavBarKey,
+      ),
+      label: bottomNavigationBarItemsLabel[2],
+    ),
     BottomNavigationBarRoute(
-        initialLocation: PAGES.profile.screenPath,
-        icon: const Icon(Icons.manage_accounts),
-        label: bottomNavigationBarItemsLabel[3]),
+      initialLocation: PAGES.profile.screenPath,
+      icon: const Icon(
+        Icons.manage_accounts,
+        key: profileBottomNavBarKey,
+      ),
+      label: bottomNavigationBarItemsLabel[3],
+    ),
   ];
 
   @override
