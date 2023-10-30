@@ -14,22 +14,11 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            ListTile(
-              minVerticalPadding: 0,
-              leading: CircleAvatar(),
-              title: _buildGreetingUser(),
-              subtitle: const Text(
-                'Last checked: 12 October 2022',
-                style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
-              ),
-            ),
-            Divider(
-              indent: 64,
-              thickness: 2,
-            ),
             _buildProfileWidget(),
             const MileageTrackingCard(mileage: 4229),
           ],
@@ -38,57 +27,43 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-// TODO: add user's name after the Welcome message
   Widget _buildProfileWidget() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          CircleAvatar(
-            radius: 25,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildGreetingUser(),
-                const Text(
-                  'Last checked: 12 October 2022',
-                  style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
-                )
-              ],
-            ),
-          )
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      child: _buildHeader(),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          _buildGreetingUser(),
+          _buildUsername('John Doe'),
+          const Divider(thickness: 1)
         ],
       ),
     );
   }
 
+  Widget _buildUsername(String username) {
+    return Text(
+      username,
+      style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    );
+  }
+
   Widget _buildGreetingUser() {
-    return RichText(
-      text: const TextSpan(
-        children: <TextSpan>[
-          TextSpan(
-            text: greetingMessage,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          TextSpan(
-            text: ' John Doe',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-        ],
+    return const Text(
+      greetingMessage,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.italic,
       ),
     );
   }
