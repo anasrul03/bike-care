@@ -230,6 +230,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/intl-0.18.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///Users/hanasrullah/.pub-cache/hosted/pub.dev/io-1.0.4",
       "packageUri": "lib/",
@@ -446,7 +452,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-18T09:39:25.409135Z",
+  "generated": "2023-10-20T03:15:59.512867Z",
   "generator": "pub",
   "generatorVersion": "3.1.1"
 }

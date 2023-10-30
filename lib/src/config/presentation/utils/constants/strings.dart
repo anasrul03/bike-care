@@ -8,5 +8,8 @@ const List<String> bottomNavigationBarItemsLabel = [
   'Profile'
 ];
 
+/// [DashboardPage] labelling strings
+const String greetingMessage = 'Welcome back';
+
 /// [MileageTrackingCard] labelling strings
 const String currentMileage = 'Current Mileage';
