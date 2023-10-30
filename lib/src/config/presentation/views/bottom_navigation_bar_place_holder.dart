@@ -80,27 +80,33 @@ class _BottomNavigationBarPlaceHolderState
         buildWhen: (previous, current) =>
             previous.bottomNavBarIndex != current.bottomNavBarIndex,
         builder: (context, state) {
-          return BottomNavigationBar(
-            onTap: (value) async {
-              if (state.bottomNavBarIndex != value) {
-                context.read<RoutingCubit>().selectedNavigationBarItems(value);
-                context.go(bottomNavigationItems[value].initialLocation);
-              }
-            },
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            fixedColor: Colors.white,
-            elevation: 0,
-            backgroundColor: Colors.blue,
-            unselectedItemColor: Colors.blueAccent[100],
-            selectedIconTheme: IconThemeData(
-              color: Colors.white,
-              size: ((IconTheme.of(mContext).size)! * 1.3),
-            ),
-            items: bottomNavigationItems,
-            currentIndex: state.bottomNavBarIndex,
-            type: BottomNavigationBarType.fixed,
-          );
+          return _buildBottomNavigationBar(
+              state, context, bottomNavigationItems, mContext);
         },
       );
+
+  Widget _buildBottomNavigationBar(RoutingState state, BuildContext context,
+      List<BottomNavigationBarRoute> bottomNavigationItems, mContext) {
+    return BottomNavigationBar(
+      onTap: (value) async {
+        if (state.bottomNavBarIndex != value) {
+          context.read<RoutingCubit>().selectedNavigationBarItems(value);
+          context.go(bottomNavigationItems[value].initialLocation);
+        }
+      },
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      fixedColor: Colors.white,
+      elevation: 0,
+      backgroundColor: Colors.blue,
+      unselectedItemColor: Colors.blueAccent[100],
+      selectedIconTheme: IconThemeData(
+        color: Colors.white,
+        size: ((IconTheme.of(mContext).size)! * 1.3),
+      ),
+      items: bottomNavigationItems,
+      currentIndex: state.bottomNavBarIndex,
+      type: BottomNavigationBarType.fixed,
+    );
+  }
 }
