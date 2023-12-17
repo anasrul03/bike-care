@@ -3,6 +3,7 @@ import 'package:bikecare/src/config/presentation/utils/constants/strings.dart';
 import 'package:bikecare/src/config/presentation/widgets/mileage_tracker_card.dart';
 import 'package:bikecare/src/domain/models/service_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -15,7 +16,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: _buildColumn(),
+      child: _buildHideTopHeaderScroll(),
     );
   }
 
@@ -26,34 +27,36 @@ class _DashboardPageState extends State<DashboardPage> {
       children: <Widget>[
         _buildProfileWidget(),
         const MileageTrackingCard(mileage: 4229),
-        _buildTile('Next Service', '14 August 2024'),
-        _buildTile('Last Service', '23 February 2023'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+                flex: 1,
+                child: _buildTile(
+                  'Next Service',
+                  '14 August 2024',
+                )),
+            Expanded(
+                flex: 1,
+                child: _buildTile(
+                  'Last Service',
+                  '23 February 2023',
+                )),
+          ],
+        ),
         const SizedBox(height: 10),
-        Expanded(child: _buildListView())
       ],
       // ),
     );
   }
 
-  ListView _buildListView() {
-    final List<Service> listService=  generateRandomServices(20);
-    return ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: listService.length,
-        itemBuilder: (BuildContext context, int index) {
-          final service =listService[index];
-          return ListTile(
-            title: Text(service.name),
-            subtitle: Text(service.location),
-          );
-        });
-  }
+
 
   Widget _buildTile(String title, String subtitle) {
     const TextStyle titleStyle =
-        TextStyle(fontSize: 20, fontWeight: FontWeight.w500);
+        TextStyle(fontSize: 18, fontWeight: FontWeight.w800);
     const TextStyle subtitleStyle =
-        TextStyle(fontSize: 15, fontWeight: FontWeight.normal);
+        TextStyle(fontSize: 13, fontWeight: FontWeight.normal);
     return ListTile(
       title: Text(
         title,
@@ -103,6 +106,61 @@ class _DashboardPageState extends State<DashboardPage> {
         fontSize: 20,
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+
+  Widget _buildHideTopHeaderScroll() {
+    final List<Service> listService = generateRandomServices(20);
+    return Scaffold(
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            forceMaterialTransparency: true,
+            // backgroundColor: Colors.white,
+            collapsedHeight: 300.0,
+            expandedHeight: 300.0,
+            // Set the height of the app bar when expanded
+            floating: false,
+            // The app bar won't float as the user scrolls
+            pinned: false,
+            // The app bar is pinned at the top
+            flexibleSpace: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(child: _buildColumn()),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: listService.length,
+              (BuildContext context, int index) {
+                final service = listService[index];
+
+                return Card(
+                  child: ListTile(
+                    style: ListTileStyle.drawer,
+                    titleTextStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 15),
+                    title: Text(service.name),
+                    subtitle: Text(
+                      service.location,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                    trailing: Text(
+                      DateFormat('MMM d').format(service.createdDate),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
